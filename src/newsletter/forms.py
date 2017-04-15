@@ -12,8 +12,8 @@ class SignUpForm(forms.ModelForm):
         email = self.cleaned_data.get('email')
         email_base, provider = email.split("@")
         domain, extention = provider.split(".")
-        if not domain == "gmail":
-            raise forms.ValidationError('this is not gmail')
+        # if not domain == "gmail":
+        #     raise forms.ValidationError('this is not gmail')
         if not extention == "edu":
             raise forms.ValidationError('pls use a valid college email')
         return email
@@ -21,4 +21,3 @@ class SignUpForm(forms.ModelForm):
     def clean_full_name(self):
         full_name = self.cleaned_data.get('full_name')
         return full_name
-        
